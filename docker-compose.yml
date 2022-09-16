@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
-      - ./data/mysql:/var/lib/mysql/
+      - sysarch_db:/var/lib/mysql/
       #- ./dumps/schema-migration.sql:/docker-entrypoint-initdb.d/based.sql
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile
     user: node
     image: sysarch_node:0.1
-    command: bash -c "npm install && npm start"
+    command: bash -c "npm install && npm run dev"
     restart: unless-stopped
     container_name: sysarch_frontend
     working_dir: /app/sysarch
@@ -51,3 +51,6 @@ services:
 networks:
   sysarch:
     driver: bridge
+
+volumes:
+  sysarch_db:
