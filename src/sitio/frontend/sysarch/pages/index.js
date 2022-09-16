@@ -1,17 +1,15 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import PageLayout from '../components/PageLayout'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import Link from 'next/link'
+import PageLayout from "../components/PageLayout";
 
-
-const Home: NextPage = () => {
+export default function Home() {
   const router = useRouter();
-  return (
 
-    <PageLayout title="welcome">
+  return (
+    <PageLayout title="Welcome">
       <div className={styles.container}>
         <Head>
           <meta name="description" content="Home page" />
@@ -23,10 +21,7 @@ const Home: NextPage = () => {
           <Link href="/mas">mas</Link> <br />
         </button>
         <Link href="/about">noticias</Link>
-        <button onClick={() => router.push("/about")}>Ir a about</button>
       </div>
     </PageLayout>
-  )
+  );
 }
-
-export default Home
